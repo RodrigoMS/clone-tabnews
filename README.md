@@ -34,3 +34,5 @@ npm run dev
 - package.json - Gerencia as dependências do projeto, scripts, versões e outras informações importantes. Define os módulos do projeto, scripts personalizados para tarefas comuns (como testes e builds), além de metadados sobre o projeto, como nome, versão e autor.
 
 - package-lock.json - Arquivo de manifesto que documenta as versões exatas das dependências instaladas no projeto, assim como suas dependências. Garante a consistência das instalações de pacotes entre diferentes ambientes.
+
+- pages - Neste diretório são armazenados os arquivos que definem as rotas da aplicação. Isso simplifica a criação de páginas e a navegação dentro do projeto, tornando o desenvolvimento mais eficiente e organizado.
