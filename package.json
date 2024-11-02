@@ -1,0 +1,17 @@
+{
+    "name": "clone-tabnews",
+    "version": "1.0.0",
+    "description": "Plataforma que permite compartilhar conteúdos de valor, tirar dúvidas e realizar interações por meio de publicações e comentários.",
+    "main": "index.js",
+    "scripts": {
+      "dev": "next dev"
+    },
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+      "next": "^13.1.6",
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0"
+    }
+  }
+  
