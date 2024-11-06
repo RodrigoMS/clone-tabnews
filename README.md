@@ -36,3 +36,6 @@ npm run dev
 - package-lock.json - Arquivo de manifesto que documenta as versões exatas das dependências instaladas no projeto, assim como suas dependências. Garante a consistência das instalações de pacotes entre diferentes ambientes.
 
 - pages - Neste diretório são armazenados os arquivos que definem as rotas da aplicação. Isso simplifica a criação de páginas e a navegação dentro do projeto, tornando o desenvolvimento mais eficiente e organizado.
+
+- .editorconfig - Define regras de configuração de um projeto para garantir que o editor de texto siga consistentemente as preferências de formatação e estilo do autor do código. Este arquivo é utilizado para manter a uniformidade do código-fonte, independentemente de qual editor de texto ou IDE esteja sendo utilizado pelo desenvolvedor.
+

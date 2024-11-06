@@ -1,0 +1,12 @@
+# Cada arquivo de código pode ter sua própria configuração específica. O arquivo .editorconfig se aplica a cada nível de diretório, retrocedendo até encontrar a definição root = true, que marca o ponto de início da hierarquia de configuração.
+root = true
+
+# Especifica que deve ser aplicado a todos os arquivos.
+[*]
+# OBS: Caso coloque [.js], a regra será aplicada apenas aos arquivos terminados com .js.
+
+# Define que a indentação deve usar o caractere de espaço.
+indent_style = space
+
+# Define o tamanho da indentação como 2 espaços.
+indent_size = 2
