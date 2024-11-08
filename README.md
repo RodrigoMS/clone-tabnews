@@ -1,4 +1,5 @@
 # TabNews
+
 Plataforma que permite compartilhar conteúdos de valor, tirar dúvidas e realizar interações por meio de publicações e comentários.
 
 ## Tecnologias:
@@ -10,12 +11,15 @@ Plataforma que permite compartilhar conteúdos de valor, tirar dúvidas e realiz
 ## Iniciar o projeto
 
 Ao executar o comando ele vai verificar a existência do arquivo .nvmrc e vai utilizar as configurações especificadas.
+
 ```
 nvm install
 ```
+
 <br>
 
 Instala as dependências do projeto.
+
 ```
 npm install
 ```
@@ -23,6 +27,7 @@ npm install
 <br>
 
 Executar o projeto.
+
 ```
 npm run dev
 ```
@@ -38,4 +43,3 @@ npm run dev
 - pages - Neste diretório são armazenados os arquivos que definem as rotas da aplicação. Isso simplifica a criação de páginas e a navegação dentro do projeto, tornando o desenvolvimento mais eficiente e organizado.
 
 - .editorconfig - Define regras de configuração de um projeto para garantir que o editor de texto siga consistentemente as preferências de formatação e estilo do autor do código. Este arquivo é utilizado para manter a uniformidade do código-fonte, independentemente de qual editor de texto ou IDE esteja sendo utilizado pelo desenvolvedor.
-
