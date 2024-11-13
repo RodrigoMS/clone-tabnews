@@ -7,6 +7,7 @@ Plataforma que permite compartilhar conteúdos de valor, tirar dúvidas e realiz
 - Node JS - 18.20.4
 - NVM
 - Next JS - 13.1.6
+- Jest - 20.6.2
 
 ## Iniciar o projeto
 
