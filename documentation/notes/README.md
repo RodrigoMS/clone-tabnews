@@ -251,6 +251,24 @@ Mostra todos os arquivos, incluindo os ocultos.
 ls -la
 ```
 
+Fazer requisições pelo terminal
+
+```
+curl localhost:3000/api/status --verbose
+```
+
+ou
+
+```
+curl localhost:3000/api/status --v
+```
+
+Adicionar opções ao servidor
+
+```
+curl https://76.76.21.21 --insecure --verbose --header 'Host: fintab.com.br'
+```
+
 ## Prettier
 
 Prettier formata automaticamente o código, garantindo um estilo consistente e melhorando a legibilidade.
@@ -300,3 +318,29 @@ npm run lint:fix
 - Em Editor: Format On Save, marque a check-box.
 
 Para alterar o auto save do VSCode, pesquise por auto save e busque por "Files: Auto Save".
+
+## Exemplos de testes
+
+### Exemplo de teste unitário
+
+```
+const calculadora = require("../models/calculadora.js");
+
+test("somar 2 + 2  deveria retronar 4", () => {
+  const resultado = calculadora.somar(2, 2);
+
+  // Espera que algo vindo do sistema no final tenha o seguinte valor.
+  expect(resultado).toBe(4);
+});
+```
+
+## Exemplo de teste de integração
+
+```
+test("GEt to /api/v1/status", async () => {
+  const response = await fetch("http://localhost:3000/api/v1/status");
+
+  // Espera que algo vindo do sistema no final tenha o seguinte valor.
+  expect(response.status).toBe(200);
+});
+```
