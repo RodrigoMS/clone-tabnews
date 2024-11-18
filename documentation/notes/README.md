@@ -326,7 +326,7 @@ Para alterar o auto save do VSCode, pesquise por auto save e busque por "Files: 
 ```
 const calculadora = require("../models/calculadora.js");
 
-test("somar 2 + 2  deveria retronar 4", () => {
+test("somar 2 + 2  deveria retornar 4", () => {
   const resultado = calculadora.somar(2, 2);
 
   // Espera que algo vindo do sistema no final tenha o seguinte valor.
@@ -343,4 +343,99 @@ test("GEt to /api/v1/status", async () => {
   // Espera que algo vindo do sistema no final tenha o seguinte valor.
   expect(response.status).toBe(200);
 });
+```
+
+## Docker Compose
+
+- Verificar versões
+
+```
+docker --version
+
+```
+
+```
+docker-compose --version
+```
+
+- Colocar o container em execução
+
+```
+docker-compose up
+```
+
+- Colocar o container em execução de um arquivo de configuração (yaml) em um local específico. (O local padrão é na raiz do projeto)
+
+```
+docker-compose --file infra/compose.yaml up
+```
+
+ou
+
+```
+docker-compose -f infra/compose.yaml up
+```
+
+- Colocar o container em execução porém deixando o terminal livre.
+
+```
+docker-compose up -detach
+```
+
+ou
+
+```
+docker-compose up -d
+```
+
+- Recria o container (Encerra o container e o coloca em execução novamente)
+
+```
+docker-compose up -d --force-recreate
+```
+
+- Encerar um container
+
+```
+docker-compose down
+```
+
+- Exibir os containers que estão executando
+
+```
+docker ps
+```
+
+- Exibir todos os containers, em execução ou não
+
+```
+docker ps -a
+```
+
+ou
+
+```
+docker ps -all
+```
+
+- Exibir todos os logs do container
+
+```
+docker logs <nome do container>
+```
+
+## psql
+
+```
+sudo apt install postgresql-client
+```
+
+```
+psql --host=localhost --username=postgres --port=5432
+```
+
+- Para sair do cliente postgres
+
+```
+\q
 ```

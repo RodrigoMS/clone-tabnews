@@ -8,6 +8,8 @@ Plataforma que permite compartilhar conteúdos de valor, tirar dúvidas e realiz
 - NVM
 - Next JS - 13.1.6
 - Jest - 20.6.2
+- Docker
+- PostgreSQL
 
 ## Iniciar o projeto
 
@@ -35,11 +37,19 @@ npm run dev
 
 ### Arquivos
 
+- infra - Armazena arquivos de infraestrutura do projeto. Que inclui:
+
+  - Configurações do Servidor
+  - Configurações de Banco de Dados
+  - Serviços Externos
+  - Scripts de Deploy (Automação de builds, scripts CI/CD, configurações de infraestrutura como código, entre outros.)
+  - Utilitários: Ferramentas e scripts auxiliares que suportam o desenvolvimento e operação do projeto.
+
 - models - Define e gerencia as estruturas de dados e a lógica de acesso a banco de dados.
 
 - pages - Neste diretório são armazenados os arquivos que definem as rotas da aplicação. Isso simplifica a criação de páginas e a navegação dentro do projeto, tornando o desenvolvimento mais eficiente e organizado.
 
-- tests - Utilizada para armazenar os testes automatizados da aplicatição.
+- tests - Utilizada para armazenar os testes automatizados da aplicação.
 
   - **Testes Unitários:** Testam partes isoladas do código, como funções e componentes individuais.
 
