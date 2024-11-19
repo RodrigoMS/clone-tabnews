@@ -10,6 +10,7 @@ Plataforma que permite compartilhar conteúdos de valor, tirar dúvidas e realiz
 - Jest - 20.6.2
 - Docker
 - PostgreSQL
+- PG
 
 ## Iniciar o projeto
 
@@ -58,6 +59,8 @@ npm run dev
   - **Testes de End-to-End (E2E):** Simulam interações reais do usuário com a aplicação, verificando o fluxo completo.
 
 - .editorconfig - Define regras de configuração de um projeto para garantir que o editor de texto siga consistentemente as preferências de formatação e estilo do autor do código. Este arquivo é utilizado para manter a uniformidade do código-fonte, independentemente de qual editor de texto ou IDE esteja sendo utilizado pelo desenvolvedor.
+
+- .env - Usado para armazenar variáveis de ambiente. Essas variáveis permitem configurar valores que podem variar entre os ambientes de desenvolvimento, teste e produção sem precisar alterar o código fonte.
 
 - .nvmrc - Arquivo que especifica a versão do Node.js a ser usada com o Node Version Manager (nvm) em um projeto. Útil para garantir que todos os desenvolvedores usem a mesma versão do Node.js.
 

@@ -269,6 +269,12 @@ Adicionar opções ao servidor
 curl https://76.76.21.21 --insecure --verbose --header 'Host: fintab.com.br'
 ```
 
+Listar os processos que estão estão por traz de um ambiente (Environment)
+
+```
+env
+```
+
 ## Prettier
 
 Prettier formata automaticamente o código, garantindo um estilo consistente e melhorando a legibilidade.
@@ -422,6 +428,12 @@ docker ps -all
 
 ```
 docker logs <nome do container>
+```
+
+- Finalizar o processo em uma porta que o docker teima em usar.
+
+```
+sudo kill -9 $(sudo lsof -t -i:<port>)
 ```
 
 ## psql

@@ -1,9 +1,13 @@
+import database from "../../../../infra/database.js";
+
 class Status {
   constructor() {
     // Inicializações necessárias podem ser feitas aqui.
   }
 
-  handleRequest(request, response) {
+  async handleRequest(request, response) {
+    const result = await database.query("SELECT 1 + 1 as sum;");
+    console.log(result.rows);
     response.status(200).json({ text: "Opa!" });
   }
 }
