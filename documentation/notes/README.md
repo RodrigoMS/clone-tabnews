@@ -7,6 +7,10 @@ Plataforma que permite compartilhar conteúdos de valor, tirar dúvidas e realiz
 - Node JS - 18.20.4
 - NVM
 - Next JS - 13.1.6
+- Jest - 20.6.2
+- Docker
+- PostgreSQL
+- PG
 
 ## Comandos
 
@@ -152,10 +156,16 @@ Cria um commit do arquivo com status staged.
 git commit
 ```
 
-Para definir a mensagem direto no comando
+Para definir a mensagem direto no comando.
 
 ```
 git commit -m "Mensagem"
+```
+
+Adicionar e aplicar o commit ao mesmo tempo.
+
+```
+git commit -am "Mensagem"
 ```
 
 Calcular a diferença entre o arquivo anterior que o git possui com o arquivo atual do projeto.
@@ -206,6 +216,13 @@ git pull
 ```
 
 <br>
+
+Renomear arquivos (Mover um arquivo para outro com o novo nome) 
+
+```
+git mv <nome do arquivo> <Novo Nome do arquivo>
+```
+
 
 ### Descrição dos Commits
 
