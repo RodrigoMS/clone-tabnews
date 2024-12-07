@@ -6,9 +6,35 @@ class Status {
   }
 
   async handleRequest(request, response) {
-    const result = await database.query("SELECT 1 + 1 as sum;");
-    console.log(result.rows);
-    response.status(200).json({ text: "Opa!" });
+    //const result = await database.query("SELECT 1 + 1 as sum;");
+    //console.log(result.rows);
+
+    // Obtém a data e hora atual, convertendo para o formato ISO 8601.
+    const updatedAt = new Date().toISOString();
+
+    // Obtém a versão do PostgreSQL.
+    //const databaseVersion = await database.query(`SHOW server_version;`);
+
+    const databaseName = process.env.POSTGRES_DB;
+    const databaseStatus = await database.query({
+      text: `SELECT 
+              current_setting('server_version') AS server_version, 
+              current_setting('max_connections')::int AS max_connections, 
+              (SELECT COUNT(*)::int FROM pg_stat_activity WHERE datname = $1 ) AS opened_connections;`,
+
+      values: [databaseName],
+    });
+
+    response.status(200).json({
+      updated_at: updatedAt,
+      dependencies: {
+        database: {
+          version: databaseStatus.rows[0].server_version,
+          max_connections: databaseStatus.rows[0].max_connections,
+          opened_connections: databaseStatus.rows[0].opened_connections,
+        },
+      },
+    });
   }
 }
 
