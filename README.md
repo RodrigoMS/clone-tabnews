@@ -11,6 +11,7 @@ Plataforma que permite compartilhar conteúdos de valor, tirar dúvidas e realiz
 - Docker
 - PostgreSQL
 - PG
+- Node PG Migrate - 6.2.2
 
 ## Iniciar o projeto
 

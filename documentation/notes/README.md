@@ -11,6 +11,7 @@ Plataforma que permite compartilhar conteúdos de valor, tirar dúvidas e realiz
 - Docker
 - PostgreSQL
 - PG
+- Node PG Migrate - 6.2.2
 
 ## Comandos
 
@@ -217,12 +218,11 @@ git pull
 
 <br>
 
-Renomear arquivos (Mover um arquivo para outro com o novo nome) 
+Renomear arquivos (Mover um arquivo para outro com o novo nome)
 
 ```
 git mv <nome do arquivo> <Novo Nome do arquivo>
 ```
-
 
 ### Descrição dos Commits
 
@@ -467,4 +467,24 @@ psql --host=localhost --username=postgres --port=5432
 
 ```
 \q
+```
+
+## Node PG Migrate
+
+- Criar uma nova migração dentro da pasta infra.
+
+```
+node-pg-migrate --migration-dir infra/migrations create
+```
+
+ou
+
+```
+node-pg-migrate --m infra/migrations create
+```
+
+- Usar o .env com o Node PG Migrate
+
+```
+npm install dotenv@16.4.4
 ```
