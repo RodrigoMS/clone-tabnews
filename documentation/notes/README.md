@@ -1,4 +1,4 @@
-# TabNews
+# TabNews curl
 
 Plataforma que permite compartilhar conteúdos de valor, tirar dúvidas e realizar interações por meio de publicações e comentários.
 
@@ -132,6 +132,14 @@ Apresenta todos os Commits do projeto.
 ```
 git log
 ```
+
+ou
+
+```
+git log --graph
+```
+
+Que adiciona um gráfico ao lado dos commits.
 
 Mostra de forma resumida os commits
 
@@ -362,6 +370,24 @@ Saída formatada com Python3
 
 ```
 curl -s -X <Método> <Endereço URL> | python3 -m json.tool
+```
+
+Ou saída formatada com jq.
+
+```
+curl -s -X <Método> <Endereço URL> | jq
+```
+
+Observar e reexecutar o comando a cada 2s.
+
+```
+watch 'curl -s -X <Método> <Endereço URL> | jq'
+```
+
+Observar e reexecutar o comando em um intervalo de tempo específico.
+
+```
+watch -n <número em segundos> 'curl -s -X <Método> <Endereço URL> | jq'
 ```
 
 Listar os processos que estão estão por traz de um ambiente (Environment)
