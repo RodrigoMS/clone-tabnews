@@ -238,10 +238,26 @@ Remover uma branch (Ser antes realizar MERGE)
 git branch -D <nome da branch>
 ```
 
+Recuperar branch apagadas por engano.
+(Será necessário ter a HASH do commit)
+Caso não tenha a HASH, diferente do "git log" que registra os commits de uma branch, use:
+
+```
+git reflog
+```
+
+Que registra tudo o que aconteceu no repositório do Git (Todas as referências).
+
 Empurra os arquivos com status staged para a branch main (origin) ou outro linha do tempo que esteja selecionada.
 
 ```
 git push
+```
+
+Execute em seguida o comando para fichar a branch de volta na HASH
+
+```
+git checkout -b <Nome da Branch> <Hash do commit>
 ```
 
 Quando ocorrer a necessidade de usar o "git commit --amend" após ter enviado para o repositório do GitHub use
