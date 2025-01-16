@@ -190,8 +190,52 @@ git commit --amend
 visualizar as branch (ramificações).
 Cada branch é uma linha do tempo do projeto.
 
+Lista a branch que estou no momento.
+
 ```
 git branch
+```
+
+Criar uma nova branch
+
+```
+git branch <Nome da nova Branch>
+```
+
+Trocar de branch
+
+```
+git checkout <Nome da Branch>
+```
+
+ou
+
+```
+git switch <Nome da Branch>
+```
+
+Criar uma Branch e mudar para ele
+
+```
+git checkout -b <Nome da nova Branch>
+```
+
+OBS: Será necessário no commit
+
+```
+git push --set-upstream origin <Nome branch>
+```
+
+Remover uma branch
+
+```
+git branch -d <nome da branch>
+```
+
+Remover uma branch (Ser antes realizar MERGE)
+
+```
+git branch -D <nome da branch>
 ```
 
 Empurra os arquivos com status staged para a branch main (origin) ou outro linha do tempo que esteja selecionada.
@@ -290,6 +334,18 @@ Adicionar opções ao servidor
 
 ```
 curl https://76.76.21.21 --insecure --verbose --header 'Host: fintab.com.br'
+```
+
+Parâmetros adicionais como o método HTTP
+
+```
+curl -X POST https://tabnews-gules.vercel.app
+```
+
+Saída formatada com Python3
+
+```
+curl -s -X <Método> <Endereço URL> | python3 -m json.tool
 ```
 
 Listar os processos que estão estão por traz de um ambiente (Environment)
