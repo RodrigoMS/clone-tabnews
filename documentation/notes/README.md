@@ -474,6 +474,12 @@ test("GEt to /api/v1/status", async () => {
 
 ## Docker Compose
 
+- Apagar todas as imagens do Docker que estão no sistema
+
+```
+docker system prune -a
+```
+
 - Verificar versões
 
 ```
