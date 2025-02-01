@@ -113,6 +113,18 @@ npm run dev
 
 - Em "Visibilidade da Porta" altere para público para visualizar em outro dispositivo.
 
+Rodar a bateria de testes:
+
+```
+npm run test
+```
+
+ou com tempo de execução
+
+```
+time npm run test
+```
+
 ## Git
 
 Estados dos arquivos no Git.
@@ -285,6 +297,7 @@ OBS: Caso esteja trabalhando em grupo para não perder trabalhos pois o commit s
 <br>
 
 Faz o download dos arquivos do repositório.
+Também serve para atualizar os arquivos no ambiente de desenvolvimento depois de um pull request.
 
 ```
 git pull
@@ -394,6 +407,12 @@ Listar os processos que estão estão por traz de um ambiente (Environment)
 
 ```
 env
+```
+
+Exibir ultimo exit code
+
+```
+echo $?
 ```
 
 ## Prettier
