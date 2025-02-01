@@ -10,6 +10,12 @@
 // Assegura que todos os módulos funcionem corretamente em conjunto.      //
 // ---------------------------------------------------------------------- //
 
+import orchestrator from "tests/orchestrator.js";
+
+beforeAll(async () => {
+  await orchestrator.waitForAllServices();
+});
+
 // Teste de integração para o endpoint /api/v1/status
 test("GET to /api/v1/status", async () => {
   // Faz uma solicitação GET para o endpoint especificado
