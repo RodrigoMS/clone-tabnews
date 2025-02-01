@@ -12,14 +12,14 @@
 // ---------------------------------------------------------------------- //
 
 import database from "infra/database.js";
+import orchestrator from "tests/orchestrator.js";
 
-beforeAll(cleanDatabase);
-
-async function cleanDatabase() {
+beforeAll(async () => {
+  await orchestrator.waitForAllServices();
   // Removendo todos os esquemas (incluindo o esquema público)
   // e, em seguida, criando um novo esquema público.
   await database.query("drop schema public cascade; create schema public;");
-}
+});
 
 // Teste de integração para o endpoint /api/v1/status
 test("POST to /api/v1/migrations", async () => {
