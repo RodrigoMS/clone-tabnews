@@ -311,6 +311,13 @@ Renomear arquivos (Mover um arquivo para outro com o novo nome)
 git mv <nome do arquivo> <Novo Nome do arquivo>
 ```
 
+Juntar vários comaondos em um
+OBS: Este adiciona todas as mudanças, emenda no commit mais recente sem alterar a mensagem e força o envio ao repositório remoto.
+
+```
+git add -A && git commit --amend --no-edit && git push -f
+```
+
 ### Descrição dos Commits
 
 O uso de identificadores no início das mensagens de commit é uma prática que ajuda a categorizar as mudanças feitas no projeto. Aqui está uma lista de identificadores comuns e seu significado:
