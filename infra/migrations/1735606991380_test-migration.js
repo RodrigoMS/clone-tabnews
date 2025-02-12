@@ -2,6 +2,10 @@
 
 exports.shorthands = undefined;
 
-exports.up = (pgm) => {};
+exports.up = (pgm) => {
+  console.log(pgm);
+};
 
-exports.down = (pgm) => {};
+exports.down = (pgm) => {
+  console.log(pgm);
+};
