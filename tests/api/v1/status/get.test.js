@@ -45,8 +45,3 @@ test("GET to /api/v1/status", async () => {
   // Número de conexões usadas atual ser iguar a 1.
   expect(responseBody.dependencies.database.opened_connections).toEqual(1);
 });
-
-// .only - Executa apenas este teste.
-/*test.only("Teste de SQL Injection", async () => {
-  await fetch("http://localhost:3000/api/v1/status?databasename='; SELECT pg_sleep(4); --'");
-});*/

@@ -650,3 +650,11 @@ npm run test:watch -- migrations.post
 ```
 test: "jest --runInBand"
 ```
+
+- .only - Executa apenas este teste.
+
+```
+test.only("Teste de SQL Injection", async () => {
+  await fetch("http://localhost:3000/api/v1/status?databasename='; SELECT pg_sleep(4); --'");
+});
+```
