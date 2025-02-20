@@ -47,6 +47,18 @@ Definir uma versão padrão para ser utilizada em um Shell.
 nvm alias default lts/hydrogen
 ```
 
+npx - Executa os mmódulos do projeto no terminal
+
+```
+npx <comando do módulo>
+```
+
+Exemplo:
+
+```
+echo "test" | npx commitlint
+```
+
 ### Arquivos
 
 - .nvmrc - É um arquivo que especifica a versão do Node.js a ser usada com o Node Version Manager (nvm) em um projeto.
@@ -318,13 +330,53 @@ OBS: Este adiciona todas as mudanças, emenda no commit mais recente sem alterar
 git add -A && git commit --amend --no-edit && git push -f
 ```
 
+Conforme o curso, após um pull request deve-se executar os seguintes comandos.
+
+Voltar para a raiz do projeto.
+
+```
+git checkout main
+```
+
+Deletar a banch anterior
+
+```
+git branch -d <Nome da branch>
+```
+
+Atualizar o codespace com o código da main
+
+```
+git pull
+```
+
+Criar uma nova branch
+
+```
+git checkout -b <Nome nova branch>
+```
+
 ### Descrição dos Commits
+
+Ou **Conventional Commits** - [text](https://www.conventionalcommits.org/en/v1.0.0/)
+
+Aspecto:
+
+```
+<type>(opicional escopo): <descrição>
+```
+
+Exemplo:
+
+```
+feat(escopo): mensagem principal
+```
 
 O uso de identificadores no início das mensagens de commit é uma prática que ajuda a categorizar as mudanças feitas no projeto. Aqui está uma lista de identificadores comuns e seu significado:
 
 - feat: Adição de uma nova funcionalidade (feature).
 
-- fix: Correção de um bug.
+- fix: Correção de um bug. Sem introduzir um novo comportamento.
 
 - docs: Alterações na documentação.
 
