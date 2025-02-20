@@ -356,6 +356,20 @@ Criar uma nova branch
 git checkout -b <Nome nova branch>
 ```
 
+Troca a base de um commit - Quando se usa uma banch desatualizada e deseja sefazer a linha dos commits
+
+```
+git rebase main
+```
+
+comparar um commit com outro
+
+Exemplo: Vai comaprar o commit anterior com o ultimo commit
+
+```
+git diff HEAD~1 HEAD
+```
+
 ### Descrição dos Commits
 
 Ou **Conventional Commits** - [text](https://www.conventionalcommits.org/en/v1.0.0/)
@@ -393,6 +407,16 @@ O uso de identificadores no início das mensagens de commit é uma prática que 
 - ci: Mudanças na configuração de integração contínua.
 
 - build: Mudanças que afetam o sistema de build ou dependências externas (ex. Gulp, Gradle, npm).
+
+### GitHub Actions
+
+Configurar o commitlint no GitHub Actions
+
+https://commitlint.js.org/guides/ci-setup.html
+
+```
+npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
+```
 
 ## Linux
 
