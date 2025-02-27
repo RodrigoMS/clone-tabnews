@@ -1,4 +1,4 @@
-# TabNews curl
+# TabNews
 
 Plataforma que permite compartilhar conteúdos de valor, tirar dúvidas e realizar interações por meio de publicações e comentários.
 
@@ -309,10 +309,18 @@ OBS: Caso esteja trabalhando em grupo para não perder trabalhos pois o commit s
 <br>
 
 Faz o download dos arquivos do repositório.
-Também serve para atualizar os arquivos no ambiente de desenvolvimento depois de um pull request.
 
 ```
-git pull
+git clone <Endereço .git do repositório>
+```
+
+<br>
+
+Serve para atualizar os arquivos no ambiente de desenvolvimento depois de um pull request.
+
+```
+git pull origin main
+
 ```
 
 <br>
@@ -323,14 +331,16 @@ Renomear arquivos (Mover um arquivo para outro com o novo nome)
 git mv <nome do arquivo> <Novo Nome do arquivo>
 ```
 
-Juntar vários comaondos em um
+Juntar vários comandos em um
 OBS: Este adiciona todas as mudanças, emenda no commit mais recente sem alterar a mensagem e força o envio ao repositório remoto.
 
 ```
 git add -A && git commit --amend --no-edit && git push -f
 ```
 
-Conforme o curso, após um pull request deve-se executar os seguintes comandos.
+---
+
+- Conforme o curso, após um pull request deve-se executar os seguintes comandos.
 
 Voltar para a raiz do projeto.
 
@@ -356,7 +366,9 @@ Criar uma nova branch
 git checkout -b <Nome nova branch>
 ```
 
-Troca a base de um commit - Quando se usa uma banch desatualizada e deseja sefazer a linha dos commits
+---
+
+- Troca a base de um commit - Quando se usa uma banch desatualizada e deseja sefazer a linha dos commits
 
 ```
 git rebase main
@@ -369,6 +381,31 @@ Exemplo: Vai comaprar o commit anterior com o ultimo commit
 ```
 git diff HEAD~1 HEAD
 ```
+
+Renomear commits anteriores e reaplicar os commits posteriores
+Esse comando abrirá o editor padrão onde você poderá escolher e editar os commits desejados.
+
+```
+git rebase -i HEAD~2
+```
+
+Altere no topo "pick" por "r" ou "reword" dizendo que quer renomear o commit.
+Salve e feche o editor. O Git abrirá novamente o editor para que você altere a mensagem do commit escolhido.
+Edite a mensagem do commit conforme desejado, salve e feche o editor novamente.
+
+Confirme com:
+
+```
+git rebase --continue
+```
+
+Ou se não quiser aplicar as alterações use:
+
+```
+git rebase --abort
+```
+
+---
 
 ### Descrição dos Commits
 
@@ -415,7 +452,7 @@ Configurar o commitlint no GitHub Actions
 https://commitlint.js.org/guides/ci-setup.html
 
 ```
-npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
+npx commitlint --from ${{ github.event_request.base.sha }} --to ${{ github.event_request.head.sha }} --verbose
 ```
 
 ## Linux

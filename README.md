@@ -5,13 +5,30 @@ Plataforma que permite compartilhar conteúdos de valor, tirar dúvidas e realiz
 ## Tecnologias:
 
 - Node JS - 18.20.4
+
 - NVM
-- Next JS - 13.1.6
-- Jest - 20.6.2
+
+- Next JS - ^15.0.3
+
+- Jest - ^29.6.2
+
 - Docker
+
 - PostgreSQL
-- PG
-- Node PG Migrate - 6.2.2
+
+- PG - ^8.11.3
+
+- Node PG Migrate - ^6.2.2
+
+- React - ^18.2.0
+
+- Commitlint CLI - ^19.3.0
+
+- ESLint - ^8.57.0
+
+- Prettier - ^3.3.3
+
+- GitHub Actions
 
 ## Iniciar o projeto
 
