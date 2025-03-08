@@ -4,14 +4,31 @@ Plataforma que permite compartilhar conteúdos de valor, tirar dúvidas e realiz
 
 ## Tecnologias:
 
-- Node JS - 18.20.4
-- NVM
-- Next JS - 13.1.6
-- Jest - 20.6.2
-- Docker
-- PostgreSQL
-- PG
-- Node PG Migrate - 6.2.2
+### Dependencies
+
+- **async-retry**: Uma biblioteca para facilitar a implementação de lógica de repetição assíncrona, permitindo a reexecução de operações assíncronas até que sejam bem-sucedidas ou um limite seja atingido.
+- **dotenv**: Carrega variáveis de ambiente de um arquivo `.env` para `process.env`, ajudando a manter segredos e configuração fora do código-fonte.
+- **dotenv-expand**: Expande variáveis referenciadas em outras variáveis do arquivo `.env`, fornecendo uma extensão para `dotenv`.
+- **next**: Um framework React para renderização no lado do servidor (SSR) e geração de sites estáticos.
+- **node-pg-migrate**: Uma biblioteca de migração para bancos de dados PostgreSQL, permitindo a criação e aplicação de scripts de migração de maneira programática.
+- **pg**: Um cliente PostgreSQL para Node.js, usado para se conectar e interagir com bancos de dados PostgreSQL.
+- **react**: Uma biblioteca JavaScript para construção de interfaces de usuário, baseada em componentes.
+- **react-dom**: Um pacote que fornece métodos específicos do DOM que podem ser usados no nível superior da aplicação React.
+
+### DevDependencies
+
+- **@commitlint/cli**: Uma ferramenta de CLI para verificar se as mensagens de commit seguem as regras de convenção especificadas.
+- **@commitlint/config-conventional**: Um conjunto de regras de convenção de commit que se baseia nas especificações do Angular.
+- **commitizen**: Uma ferramenta para fazer commits amigáveis, seguindo convenções específicas.
+- **concurrently**: Executa múltiplos comandos simultaneamente, útil para rodar scripts de desenvolvimento.
+- **cz-conventional-changelog**: Adaptador para `commitizen`, seguindo o padrão de commit convencional.
+- **eslint**: Uma ferramenta de linting para identificar e corrigir problemas em seu código JavaScript.
+- **eslint-config-next**: Configurações ESLint específicas para projetos Next.js.
+- **eslint-config-prettier**: Desativa regras ESLint que poderiam conflitar com Prettier.
+- **eslint-plugin-jest**: Conjunto de regras ESLint para o framework de teste Jest.
+- **husky**: Ferramenta para gerenciar ganchos do Git, como pre-commit e pre-push.
+- **jest**: Um framework de teste JavaScript para garantir a qualidade do código.
+- **prettier**: Um formatador de código que enforces a consistência de estilo de código em toda a base de código.
 
 ## Comandos
 
@@ -47,7 +64,7 @@ Definir uma versão padrão para ser utilizada em um Shell.
 nvm alias default lts/hydrogen
 ```
 
-npx - Executa os mmódulos do projeto no terminal
+npx - Executa os módulos do projeto no terminal
 
 ```
 npx <comando do módulo>
@@ -107,6 +124,18 @@ nvm install react-dom@18.2.0
 
 ```
 npm install dotenv-expand@11.0.6
+```
+
+- Verificar quais dependências estão desatualizadas
+
+```
+npm outdated
+```
+
+- Verificar brechas de segurança das dependências (Auditoria)
+
+```
+npm audit
 ```
 
 ## CodeSpaces
@@ -348,13 +377,13 @@ Voltar para a raiz do projeto.
 git checkout main
 ```
 
-Deletar a banch anterior
+Deletar a branch anterior
 
 ```
 git branch -d <Nome da branch>
 ```
 
-Atualizar o codespace com o código da main
+Atualizar o CodeSpace com o código da main
 
 ```
 git pull
@@ -368,7 +397,7 @@ git checkout -b <Nome nova branch>
 
 ---
 
-- Troca a base de um commit - Quando se usa uma banch desatualizada e deseja sefazer a linha dos commits
+- Troca a base de um commit - Quando se usa uma branch desatualizada e deseja se fazer a linha dos commits
 
 ```
 git rebase main
@@ -376,7 +405,7 @@ git rebase main
 
 comparar um commit com outro
 
-Exemplo: Vai comaprar o commit anterior com o ultimo commit
+Exemplo: Vai comparar o commit anterior com o ultimo commit
 
 ```
 git diff HEAD~1 HEAD
@@ -414,7 +443,7 @@ Ou **Conventional Commits** - [text](https://www.conventionalcommits.org/en/v1.0
 Aspecto:
 
 ```
-<type>(opicional escopo): <descrição>
+<type>(opcional escopo): <descrição>
 ```
 
 Exemplo:
@@ -771,3 +800,14 @@ test.only("Teste de SQL Injection", async () => {
   await fetch("http://localhost:3000/api/v1/status?databasename='; SELECT pg_sleep(4); --'");
 });
 ```
+
+## Semantic Versioning
+
+- [ ].[ ].[ ]
+  major . minor . patch
+
+Ex: 1.0.0
+
+- Patch - Quando a alterações más que não trazem nenhuma mudança na aplicação, algo foi melhorado ou alterado mas não muda nada na usabilidade do sistema.
+- Minor - Quando há a implementação de novas funcionalidades no sistema.
+- Major - Quando algo mudou, o recurso que antes retornava um valor x agora retorna um valor y. O que pode quebrar algo na aplicação.
