@@ -20,16 +20,20 @@ beforeAll(async () => {
   await database.query("drop schema public cascade; create schema public;");
 });
 
-// Teste de integração para o endpoint /api/v1/status
-test("GET to /api/v1/migrations", async () => {
-  // Faz uma solicitação GET para o endpoint especificado
-  const response = await fetch("http://localhost:3000/api/v1/migrations");
+describe("GET /api/v1/migrations", () => {
+  describe("Anonymous user", () => {
+    // Teste de integração para o endpoint /api/v1/status
+    test("Retrieving pending migrations", async () => {
+      // Faz uma solicitação GET para o endpoint especificado
+      const response = await fetch("http://localhost:3000/api/v1/migrations");
 
-  // Verifica se o status da resposta é 200 (OK)
-  expect(response.status).toBe(200);
+      // Verifica se o status da resposta é 200 (OK)
+      expect(response.status).toBe(200);
 
-  const responseBody = await response.json();
+      const responseBody = await response.json();
 
-  expect(Array.isArray(responseBody)).toBe(true);
-  expect(responseBody.length).toBeGreaterThan(0);
+      expect(Array.isArray(responseBody)).toBe(true);
+      expect(responseBody.length).toBeGreaterThan(0);
+    });
+  });
 });
