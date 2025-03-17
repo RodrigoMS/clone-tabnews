@@ -157,3 +157,9 @@ Remover o cache de módulos do projeto que não estão sendo usados mais.
 ```
 npm cache clean --force
 ```
+
+Força o envio dos arquivos para a branch.
+
+```
+git push --force
+```
