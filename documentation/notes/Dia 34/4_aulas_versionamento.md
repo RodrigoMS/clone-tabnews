@@ -163,3 +163,23 @@ Força o envio dos arquivos para a branch.
 ```
 git push --force
 ```
+
+Verificar a formatação com o prettier
+
+```
+npx prettier --write infra/scripts/dev-runner.js
+```
+
+Checar se está tudo correto
+
+Para um arquivo
+
+```
+npx prettier --check infra/scripts/dev-runner.js
+```
+
+Para todos os arquivos do projeto
+
+```
+npx prettier --check "**/*.{js,ts}"
+```
