@@ -10,14 +10,11 @@
 // Assegura que todos os módulos funcionem corretamente em conjunto.      //
 // ---------------------------------------------------------------------- //
 
-import database from "infra/database.js";
 import orchestrator from "tests/orchestrator.js";
 
 beforeAll(async () => {
   await orchestrator.waitForAllServices();
-  // Removendo todos os esquemas (incluindo o esquema público)
-  // e, em seguida, criando um novo esquema público.
-  await database.query("drop schema public cascade; create schema public;");
+  await orchestrator.clearDatabase();
 });
 
 describe("GET /api/v1/migrations", () => {

@@ -12,6 +12,7 @@
 // inicialização.                                                         //
 // ---------------------------------------------------------------------- //
 
+import database from "infra/database.js";
 // Importa o módulo 'async-retry' para tratar tentativas de execução.
 import retry from "async-retry";
 
@@ -44,9 +45,16 @@ async function waitForAllServices() {
   }
 }
 
+async function clearDatabase() {
+  // Removendo todos os esquemas (incluindo o esquema público)
+  // e, em seguida, criando um novo esquema público.
+  await database.query("drop schema public cascade; create schema public;");
+}
+
 // Exporta a função 'waitForAllServices' como padrão.
 const orchestrator = {
   waitForAllServices,
+  clearDatabase,
 };
 
 export default orchestrator;
