@@ -3,12 +3,12 @@ const os = require("os");
 
 async function runDev() {
   try {
-    // Executa os comandos iniciais em paralelo
-    await Promise.all([
-      runCommand("npm run services:up"),
-      runCommand("npm run services:wait:database"),
-      runCommand("npm run migrations:up"),
-    ]);
+    // Executa os comandos iniciais em sequência
+    await runCommand("npm run services:up");
+    await runCommand("npm run services:wait:database");
+
+    // Somente depois de garantir que o banco está pronto, aplica as migrações
+    await runCommand("npm run migrations:up");
 
     // Inicia o servidor de desenvolvimento
     const nextDevProcess = spawn("npm", ["run", "next:dev"], {
