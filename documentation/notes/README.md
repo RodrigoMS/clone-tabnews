@@ -126,6 +126,12 @@ nvm install react-dom@18.2.0
 npm install dotenv-expand@11.0.6
 ```
 
+- instalar uma dependencia em uma versão exata
+
+```
+npm install -E swr@2.3.3
+```
+
 - Verificar quais dependências estão desatualizadas
 
 ```
