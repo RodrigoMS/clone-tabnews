@@ -1,9 +1,16 @@
 class ValidationError extends Error {
   constructor(message) {
     super(message);
-    this.statusCOde = 400;
+    this.statusCode = 400; // Corrigido: statusCOde → statusCode
   }
 }
+
+// Simulação de um objeto user com método save
+const user = {
+  save(input) {
+    console.log("Usuário salvo:", input);
+  },
+};
 
 function saveUser(input) {
   if (!input) {
@@ -23,20 +30,19 @@ function saveUser(input) {
   }
 
   user.save(input);
+}
 
-  try {
-    saveUser({});
-  } catch (error) {
-    if (error instanceof ReferenceError) {
-      throw error;
-    }
-
-    if (error instanceof ValidationError) {
-      console.log(error);
-      return;
-    }
-
-    console.log("Erro desconhecido");
-    console.log(error.stack);
+// Exemplo de uso
+try {
+  saveUser({
+    name: "Rodrigo",
+    username: "rodrigoms",
+    age: 30,
+  });
+} catch (error) {
+  if (error instanceof ReferenceError || error instanceof ValidationError) {
+    console.error("Erro de validação:", error.message);
+  } else {
+    console.error("Erro desconhecido:", error.stack);
   }
 }
