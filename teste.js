@@ -23,20 +23,20 @@ function saveUser(input) {
   }
 
   user.save(input);
-}
 
-try {
-  saveUser({});
-} catch (error) {
-  if (error instanceof ReferenceError) {
-    throw error;
+  try {
+    saveUser({});
+  } catch (error) {
+    if (error instanceof ReferenceError) {
+      throw error;
+    }
+
+    if (error instanceof ValidationError) {
+      console.log(error);
+      return;
+    }
+
+    console.log("Erro desconhecido");
+    console.log(error.stack);
   }
-
-  if (error instanceof ValidationError) {
-    console.log(error);
-    return;
-  }
-
-  console.log("Erro desconhecido");
-  console.log(error.stack);
 }
