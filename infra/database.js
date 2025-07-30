@@ -49,5 +49,3 @@ const database = {
 };
 
 export default database;
-
-//https://github.com/filipedeschamps/clone-tabnews/pull/46
