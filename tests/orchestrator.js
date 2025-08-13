@@ -16,6 +16,8 @@ import database from "infra/database.js";
 // Importa o módulo 'async-retry' para tratar tentativas de execução.
 import retry from "async-retry";
 
+import migrator from "models/migrator.js";
+
 // Define uma função assíncrona para esperar todos os serviços.
 async function waitForAllServices() {
   // Chama a função para esperar o servidor web.
@@ -51,10 +53,15 @@ async function clearDatabase() {
   await database.query("drop schema public cascade; create schema public;");
 }
 
+async function runPendingMigrations() {
+  await migrator.runPendingMigrations();
+}
+
 // Exporta a função 'waitForAllServices' como padrão.
 const orchestrator = {
   waitForAllServices,
   clearDatabase,
+  runPendingMigrations,
 };
 
 export default orchestrator;
