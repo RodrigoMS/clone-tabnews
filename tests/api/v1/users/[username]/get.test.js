@@ -1,6 +1,5 @@
 import { version as uuidVersion } from "uuid";
 import orchestrator from "tests/orchestrator.js";
-import status from "pages/api/v1/status";
 
 beforeAll(async () => {
   await orchestrator.waitForAllServices();

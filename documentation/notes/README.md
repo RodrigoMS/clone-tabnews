@@ -440,6 +440,39 @@ Ou se não quiser aplicar as alterações use:
 git rebase --abort
 ```
 
+- **Para alterar um commit aleatório use:**
+
+```
+git rebase -i <hash do commit>^
+```
+
+ou
+
+```
+git rebase -i <hash do commit anterior>
+```
+
+Mude para 'edit' onde estiver a descrição do commit e feche o arquivo.
+Faça as alterações necessárias
+
+Coloque em stage:
+
+```
+git add .
+```
+
+Adicione as alterações ao commit já existente:
+
+```
+git commit --amend
+```
+
+Finalize o rebase
+
+```
+git rebase --continue
+```
+
 ---
 
 ### Descrição dos Commits
