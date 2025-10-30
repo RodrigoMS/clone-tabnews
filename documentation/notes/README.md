@@ -1,4 +1,4 @@
-# TabNews
+# TabNews test
 
 Plataforma que permite compartilhar conteúdos de valor, tirar dúvidas e realizar interações por meio de publicações e comentários.
 
@@ -838,6 +838,18 @@ test: "jest --runInBand"
 test.only("Teste de SQL Injection", async () => {
   await fetch("http://localhost:3000/api/v1/status?databasename='; SELECT pg_sleep(4); --'");
 });
+```
+
+- /.username./patch- Executa apenas os testes de patch.
+
+```
+npm rum test:watch -- users/.username./patch
+```
+
+ou
+
+```
+npm rum test:watch -- username./patch
 ```
 
 ## Semantic Versioning
