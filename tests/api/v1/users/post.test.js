@@ -1,5 +1,7 @@
 import { version as uuidVersion } from "uuid";
 import orchestrator from "tests/orchestrator.js";
+import user from "models/user.js";
+import password from "models/password.js";
 
 beforeAll(async () => {
   await orchestrator.waitForAllServices();
@@ -33,7 +35,7 @@ describe("POST /api/v1/users", () => {
         id: response1Body.id,
         username: "rodrigoms",
         email: "rms@localhost.com",
-        password: "123456789",
+        password: response1Body.password,
         created_at: response1Body.created_at,
         updated_at: response1Body.updated_at,
       });
@@ -41,6 +43,20 @@ describe("POST /api/v1/users", () => {
       expect(uuidVersion(response1Body.id)).toBe(4);
       expect(Date.parse(response1Body.created_at)).not.toBeNaN();
       expect(Date.parse(response1Body.updated_at)).not.toBeNaN();
+
+      const userInDatabase = await user.findOneByUsername("rodrigoms");
+      const correctPasswordMatch = await password.compare(
+        "123456789",
+        userInDatabase.password,
+      );
+
+      const incorrectPasswordMatch = await password.compare(
+        "987654321",
+        userInDatabase.password,
+      );
+
+      expect(correctPasswordMatch).toBe(true);
+      expect(incorrectPasswordMatch).toBe(false);
 
       // Verifica se o array da resposta não está vazio.
       //expect(response1Body.length).toBeGreaterThan(0);
@@ -81,7 +97,7 @@ describe("POST /api/v1/users", () => {
       expect(response2Body).toEqual({
         name: "ValidationError",
         message: "O email informado já está sendo utilizado.",
-        action: "Utilize outro email para realizar o cadastro",
+        action: "Utilize outro email para realizar esta operação.",
         status_code: 400,
       });
     });
@@ -121,7 +137,7 @@ describe("POST /api/v1/users", () => {
       expect(response2Body).toEqual({
         name: "ValidationError",
         message: "O username informado já está sendo utilizado.",
-        action: "Utilize outro username para realizar o cadastro",
+        action: "Utilize outro username para realizar esta operação.",
         status_code: 400,
       });
     });
