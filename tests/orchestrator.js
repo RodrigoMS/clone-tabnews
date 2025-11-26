@@ -12,11 +12,13 @@
 // inicialização.                                                         //
 // ---------------------------------------------------------------------- //
 
-import database from "infra/database.js";
 // Importa o módulo 'async-retry' para tratar tentativas de execução.
 import retry from "async-retry";
+import { faker } from "@faker-js/faker";
 
+import database from "infra/database.js";
 import migrator from "models/migrator.js";
+import user from "models/user.js";
 
 // Define uma função assíncrona para esperar todos os serviços.
 async function waitForAllServices() {
@@ -57,11 +59,21 @@ async function runPendingMigrations() {
   await migrator.runPendingMigrations();
 }
 
+async function createUser(userObject) {
+  return await user.create({
+    username:
+      userObject.username || faker.internet.username().replace(/[_.-]/g, ""),
+    email: userObject.email || faker.internet.email(),
+    password: userObject.password || "validpassword",
+  });
+}
+
 // Exporta a função 'waitForAllServices' como padrão.
 const orchestrator = {
   waitForAllServices,
   clearDatabase,
   runPendingMigrations,
+  createUser,
 };
 
 export default orchestrator;
