@@ -1,4 +1,5 @@
 import { version as uuidVersion } from "uuid";
+import setCookieParser from "set-cookie-parser";
 import orchestrator from "tests/orchestrator.js";
 import session from "models/session";
 
@@ -140,8 +141,22 @@ describe("POST /api/v1/sessions", () => {
       expect(
         session.EXPIRATION_IN_MILLISECONDS - (expiresAt - createdAt),
       ).toBeLessThan(1000);
+
+      const parsedSetCookie = setCookieParser(response, { map: true });
+
+      expect(parsedSetCookie.session_id).toEqual({
+        name: "session_id",
+        value: responseBody.token,
+        maxAge: session.EXPIRATION_IN_MILLISECONDS / 1000,
+        path: "/",
+        httpOnly: true,
+      });
     });
   });
 });
 
 // Test: npm run test:watch sessions.post
+
+// curl -v -X POST http://localhost:3000/api/v1/users -H "Content-Type: application/json" -d '{"email":"cookie@curso.dev", "username":"cookie", "password":"cookie"}'
+
+// curl -v -X POST http://localhost:3000/api/v1/sessions -H "Content-Type: application/json" -d '{"email":"cookie@curso.dev", "password":"cookie"}'
