@@ -1,4 +1,4 @@
-# TabNews test
+# TabNews
 
 Plataforma que permite compartilhar conteúdos de valor, tirar dúvidas e realizar interações por meio de publicações e comentários.
 
@@ -758,7 +758,7 @@ ou
 docker ps -all
 ```
 
-- Exibir todos os logs do container
+- Exibir todos os logs do containerarano banco de dados usando migrate
 
 ```
 docker logs <nome do container>
@@ -811,6 +811,12 @@ npm install dotenv@16.4.4
   - Dry Run - Que apenas mostra como as alteração vão afetar o banco de dados;
   - Wet Run - Ná pratica, modificando realmente o banco de dados.
 
+- Criar nova migrate para uma entidade.
+
+```
+npm run migrations:create create <nome entidade>
+```
+
 ## Testes
 
 - Em vez de rodar todos os arquivos de testes, executar um em específico.
@@ -850,6 +856,12 @@ ou
 
 ```
 npm rum test:watch -- username./patch
+```
+
+ou
+
+```
+npm run test:watch -- -t "/api/v1/sessions"
 ```
 
 ## Semantic Versioning

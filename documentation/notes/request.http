@@ -1,0 +1,40 @@
+// Criar o usuário 
+//curl -v -X POST http://localhost:3000/api/v1/users \
+//> -H "Content-Type: application/json" \
+//> -d '{"email": "cookie@rms.com","username": "cookie","password": "cookie"}'
+
+POST http://localhost:3000/api/v1/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "cookie@rms.com",
+    "username": "cookie",
+    "password": "cookie"
+}
+
+
+###
+// Inciar sessão
+//curl -v -X POST http://localhost:3000/api/v1/sessions \
+//> -H "Content-Type: application/json" \
+//> -d '{"email": "cookie@rms.com", "password": "cookie"}'
+
+POST http://localhost:3000/api/v1/sessions HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "cookie@rms.com",
+  "password": "cookie"
+}
+
+// Ferch
+//fetch('/api/v1/sessions'), {
+//  method: 'POST',
+//  headers: {
+//    'Content-Type': 'application/json'
+//  }
+//  body: JSON.stringify({
+//    "email": "cookie@rms.com",
+//    "password": "cookie"
+//  })
+//})
