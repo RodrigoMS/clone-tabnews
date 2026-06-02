@@ -1,16 +1,16 @@
-// ---------------------------------------------------------------------- //
-//                                                                        //
-//                         Serviços de Espera                             //
-//                                                                        //
-// ---------------------------------------------------------------------- //
-// Arquivo: waitForAllServices.js                                         //
-// Autor: RodrigoMS                                                       //
-// Data: 31/01/2025                                                       //
-// Descrição: Este arquivo contém a função para esperar todos os serviços //
-// serem inicializados, garantindo que o servidor web esteja pronto antes //
-// de prosseguir. Utiliza uma política de tentativas para assegurar a     //
-// inicialização.                                                         //
-// ---------------------------------------------------------------------- //
+// ------------------------------------------------------------------------ //
+//                                                                          //
+//                           Serviços de Espera                             //
+//                                                                          //
+// ------------------------------------------------------------------------ //
+// Arquivo: waitForAllServices.js                                           //
+// Autor: RodrigoMS                                                         //
+// Data: 31/01/2025                                                         //
+// Descrição: Este arquivo contém as funções para esperar todos os serviços //
+// serem inicializados, garantindo que o servidor web esteja pronto antes   //
+// de prosseguir. Utiliza uma política de tentativas para assegurar a       //
+// inicialização.                                                           //
+// ------------------------------------------------------------------------ //
 
 // Importa o módulo 'async-retry' para tratar tentativas de execução.
 import retry from "async-retry";
@@ -19,6 +19,7 @@ import { faker } from "@faker-js/faker";
 import database from "infra/database.js";
 import migrator from "models/migrator.js";
 import user from "models/user.js";
+import session from "models/session.js";
 
 // Define uma função assíncrona para esperar todos os serviços.
 async function waitForAllServices() {
@@ -68,12 +69,17 @@ async function createUser(userObject) {
   });
 }
 
+async function createSession(userId) {
+  return await session.create(userId);
+}
+
 // Exporta a função 'waitForAllServices' como padrão.
 const orchestrator = {
   waitForAllServices,
   clearDatabase,
   runPendingMigrations,
   createUser,
+  createSession,
 };
 
 export default orchestrator;
