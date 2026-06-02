@@ -874,3 +874,8 @@ Ex: 1.0.0
 - Patch - Quando a alterações más que não trazem nenhuma mudança na aplicação, algo foi melhorado ou alterado mas não muda nada na usabilidade do sistema.
 - Minor - Quando há a implementação de novas funcionalidades no sistema.
 - Major - Quando algo mudou, o recurso que antes retornava um valor x agora retorna um valor y. O que pode quebrar algo na aplicação.
+
+## Provável erro no ESLint e Prettier no GitHub
+
+- npm run lint:prettier:fix
+- npx @next/codemod@canary next-lint-to-eslint-cli .

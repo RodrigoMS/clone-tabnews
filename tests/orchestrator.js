@@ -1,16 +1,16 @@
-// ---------------------------------------------------------------------- //
-//                                                                        //
-//                         Serviços de Espera                             //
-//                                                                        //
-// ---------------------------------------------------------------------- //
-// Arquivo: waitForAllServices.js                                         //
-// Autor: RodrigoMS                                                       //
-// Data: 31/01/2025                                                       //
-// Descrição: Este arquivo contém a função para esperar todos os serviços //
-// serem inicializados, garantindo que o servidor web esteja pronto antes //
-// de prosseguir. Utiliza uma política de tentativas para assegurar a     //
-// inicialização.                                                         //
-// ---------------------------------------------------------------------- //
+// ------------------------------------------------------------------------ //
+//                                                                          //
+//                           Serviços de Espera                             //
+//                                                                          //
+// ------------------------------------------------------------------------ //
+// Arquivo: waitForAllServices.js                                           //
+// Autor: RodrigoMS                                                         //
+// Data: 31/01/2025                                                         //
+// Descrição: Este arquivo contém as funções para esperar todos os serviços //
+// serem inicializados, garantindo que o servidor web esteja pronto antes   //
+// de prosseguir. Utiliza uma política de tentativas para assegurar a       //
+// inicialização.                                                           //
+// ------------------------------------------------------------------------ //
 
 // Importa o módulo 'async-retry' para tratar tentativas de execução.
 import retry from "async-retry";

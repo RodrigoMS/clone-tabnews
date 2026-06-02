@@ -142,7 +142,9 @@ describe("POST /api/v1/sessions", () => {
         session.EXPIRATION_IN_MILLISECONDS - (expiresAt - createdAt),
       ).toBeLessThan(1000);
 
-      const parsedSetCookie = setCookieParser(response, { map: true });
+      const parsedSetCookie = setCookieParser(response, {
+        map: true,
+      });
 
       expect(parsedSetCookie.session_id).toEqual({
         name: "session_id",
@@ -154,6 +156,8 @@ describe("POST /api/v1/sessions", () => {
     });
   });
 });
+
+// npm run test:watch -- session
 
 // Test: npm run test:watch sessions.post
 
